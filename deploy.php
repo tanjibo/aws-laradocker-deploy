@@ -26,13 +26,13 @@ host('54.146.4.89')
     ->user('deployer') // 这里填写 deployer
     // 并指定公钥的位置
     ->identityFile('~/.ssh/deployerkey')
-    ->set('/Users/weaving/aws-laradock-deploy', '~/');
+    ->set('/Users/weaving/aws-laradock-deploy', '~/{{application}}');
     
 // Tasks
 
-task('build', function () {
-    run('cd {{release_path}} && build');
-});
+//task('build', function () {
+//    run('cd {{release_path}} && build');
+//});
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
